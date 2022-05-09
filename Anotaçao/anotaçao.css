@@ -1,0 +1,205 @@
+/*importar uma fonte do google*/ 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+
+/*fazendo Degrade no CSS:*/
+body{
+    background-image: linear-gradient(right, #f6d365, #fda085);
+                
+}
+/*medidas absolutas e relativas
+            absolutas: cm, mn, in, px, pt, pc   
+            relativas: em, ex, rem, vw, vh, vmin, vmax, %*/
+.fonts {
+    font-size:  1em;
+    font-weight: bold; /* lighter,normal, bold, bolder,  */
+    font-style: italic; /* normal, italic, oblique */
+    font-family: sans-serif; /* serif, sans-serif, cursive, fantasy, monospace */
+    text-decoration: underline; /* none, underline, overline, line-through */
+}
+
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+/* ou */
+
+h1 {
+    font: italic bold 2em sans-serif   ; /* font-style, font-weight, font-size, font-family */
+}
+
+
+/*importando uma fonte externa*/
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('RobotoMono-Regular.ttf') format('truetype'), url('RobotoMono-Regular.otf') format('opentype');
+    font-style: normal;
+    font-weight: normal;
+}
+/* formats: truetype:ttf opentype:otf woff:woff woff2:woff2 */
+
+/*alinhamento de texto*/
+
+p {
+    text-align: center; /* left, right, center, justify */
+    /* jusitify alinha o texto em relação ao espaço disponível, ou seja, alinha os dois lados  */
+    text-indent: 20px;  /* serve para identar o texto, mudar a margem do paragrafo */
+    border : 1px solid black; /* largura tipo e cor;*/
+    display: inline-block; /* inline-block: o texto fica um do lado do outro*/
+    
+}
+
+/*
+    . = classe  
+    # = id
+    : = pseudo-classe
+    :: = pseudo-element
+    > = elemento filho;
+*/
+
+/* pseudo-classe no css */
+/* ':' simboliza uma classe que não existe no html, mas é criada pelo css. Tem haver com o estado no elemento */
+
+div:hover {
+    /* quando o mouse estiver sobre o elemento */
+    background-color: #f6d365;
+}
+
+/*mecher em um elemento dentro da div */
+
+div > p {
+    /* esconte o p dentro da div */
+    display: none;
+}
+
+/* para mostrar o p dentro da div */
+
+div:hover > p {
+    display: block;
+}
+
+a.visited {
+    /*se o link for visitado, ou seja, clicado, ele fica com outra cor */
+    color: #f6d365;
+}
+
+a.active {
+    /*se o link for ativo, ou seja, clicado, ele fica com outra cor */
+    color: #fda085;
+}
+
+/* pseudo-elemento no css */
+/* '::' simboliza um pseudo-elemento que não existe no html, mas é criado pelo css. */
+
+div::after {
+    /* criar um elemento depois do elemento pai */
+    content: 'Texto depois do elemento pai';
+}
+div::before {
+    /* criar um elemento antes do elemento pai */
+    content: 'Texto antes do elemento pai';
+}
+ 
+/* box model */
+
+.borda {
+    border-width: 10px; /* largura da borda */
+    border-style: solid;  /* tipo da borda */ /* solid = linha normal, dashed = pontilhado com barras , dotted = pontilhado com bolas, double = linha dupla, groove = 3d, ridge, inset, outset */
+    border-color: #fda085; /* cor da borda */
+
+    /* simplificando */
+
+    border: 10px solid red;  /* largura e tipo da borda */
+
+}
+
+.margin {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    /* simplificando */
+
+    margin: 10px 10px 10px 10px; /* top, right, bottom, left  (sentido horario)*/
+
+    margin: auto; /* centralizar o elemento na pagina */
+
+    /* para centralizar as margens laterais e mudar cima e baixo*/
+
+    margin: 10px auto 30px auto;
+
+}
+
+.outline {
+    outline: 1px solid #fda085; /* tamanho, tipo e cor da borda */ /* cria um contorno em volta do elemento, em volta da borda */
+}
+
+
+.display {
+    /* para tranformar um elemento block em inline */
+    display: inline;
+
+    /* para tranformar um elemento inline em block */
+    display: block;
+
+    display: inline-block; /* continua sendo inline porem recebe caracteristicas de um bloco, como tamanho, altura... */
+}
+
+.displaygrid {
+    grid-template-columns: 1fr 1fr 1fr; /* criar uma grade de 3 colunas */
+}
+.shadow {
+    box-shadow: 10px 10px 10px hsla(13, 97%, 76%, 0.376); /* deslocamento lateral, deslocamento vertical, espalhamento e corda da sombra */ /* cria um contorno em volta do elemento, em volta da borda */
+}
+
+.border-radius {
+    border-radius: 10px 20px 30px 40px; /* top-left, top-right, bottom-right, bottom-left */ /* cria um contorno em volta do elemento, em volta da borda */
+
+    /* para criar um circulo */
+    border-radius: 50%; 
+}
+
+
+/* criando variaveis em css */
+
+:root {
+    --cor-fundo: #fda085;
+    --cor-texto: #f6d365;    
+}
+
+
+/* para dividir listas em colunas */
+
+.ul {
+    columns: 2; /* numero de colunas */
+}
+
+.background {
+    background-image: linear-gradient(to right, #f6d365, #fda085); /* criar um degrade */
+    background-image: url(); /* colocar uma imagem no backgound */
+    background-repeat: no-repeat; /* não repetir a imagem */ /* para repetir a imgaem em horizontal e vertical, usar repeat-x e repeat-y */
+    background-size: cover; /* Ira sempre ocupar a tela toda, msm q corte parte da imagem */
+    background-size: content; /* a imagem sempre sera 100% visivel, mesmo q n ocupe todo o background, mantem a proporçao */
+    background-position: center; /* para centralizar a imagem */
+    background-position: left top; /* para centralizar a imagem no ponto esquerdo e no centro*/ /* é possivel combinar tambem: right, bottom, center */
+    background-attachment: fixed; /* background nao se move quando a pagina for rolada */
+    background-attachment: scroll; /* background se move quando a pagina for rolada */  
+    /* shorthand */
+    background: black url(img.jpg) center center no-repeat cover fixed; /* color > image > position > repeat > size > attachment */
+}
+
+
+/* centralizaçao de um objeto */ 
+
+.conteudo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
